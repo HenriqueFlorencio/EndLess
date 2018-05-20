@@ -14,5 +14,6 @@ namespace EndLess.Data.EF
             //Database.SetInitializer<HFStoreDataContext>(null);
         }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Perfil> Perfis { get; set; }
     }
 }

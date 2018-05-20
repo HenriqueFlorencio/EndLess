@@ -1,0 +1,41 @@
+﻿@model LogonViewModel
+@{
+    ViewBag.Title = "Logon";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.ValidationSummary(true)
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label>Usuário</label>
+        @*<input name="email" type="email" class="form-control" autofocus value="@Model.Email" />*@
+
+        @Html.TextBoxFor(m => m.Email, new { autofocus = "", @class = "form-control" })
+        <small>
+            @Html.ValidationMessageFor(m => m.Email, null, new { @class = "is-invalid" })
+        </small>
+    </div>
+
+    <div class="form-group">
+        <label>Senha</label>
+        @*<input name="senha" type="password" class="form-control"  value="@Model.Senha"/>*@
+
+        @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
+        <small>
+            @Html.ValidationMessageFor(m => m.Senha, null, new { @class = "is-invalid" })
+        </small>
+    </div>
+
+    <button class="btn btn-secondary">Entrar</button>
+    <a class="btn btn-outline-secondary" href="/">Cancelar</a>
+
+</form>
+
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrapvalidade.js"></script>
+}

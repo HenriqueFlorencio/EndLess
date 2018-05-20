@@ -41,7 +41,7 @@
             @if (!User.Identity.IsAuthenticated)
             {
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Login","Conta")">Efetuar Login</a>
+                    <a class="nav-link" href="@Url.Action("Logon","Acount")">Efetuar Login</a>
                 </li>
             }
             else
@@ -57,7 +57,7 @@
                         <a class="dropdown-item" href="@Url.Action("AddEdit","Usuarios", new { id=user.Id})">Meu perfil</a>
                         <a class="dropdown-item" href="#">Trocar minha senha</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="@Url.Action("LogOut","Conta")">Sair</a>
+                        <a class="dropdown-item" href="@Url.Action("LogOut","Acount")">Sair</a>
                     </div>
                 </li>
             }

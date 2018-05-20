@@ -1,3 +1,5 @@
+using EndLess.Data.EF.Repositories;
+using EndLess.Domain.Contract;
 using System;
 
 using Unity;
@@ -42,6 +44,10 @@ namespace EndLess.UI
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
+
+            container.RegisterType<IUsuarioRepository, UsuarioRepository>();
+            container.RegisterType<IPerfilRepository, PerfilRepository>();
+
         }
     }
 }
