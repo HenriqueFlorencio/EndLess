@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="EF\DbInitializer.cs" />
     <Compile Include="EF\EndLessDataContext.cs" />
+    <Compile Include="EF\Repositories\PerfilRepository.cs" />
     <Compile Include="EF\Repositories\Repository.cs" />
     <Compile Include="EF\Repositories\UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\IPerfilRepository.cs" />
     <Compile Include="Contract\IRepository.cs" />
     <Compile Include="Contract\IUsuarioRepository.cs" />
     <Compile Include="Entities\Entity.cs" />
