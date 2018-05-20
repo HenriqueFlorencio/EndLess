@@ -60,7 +60,7 @@ namespace EndLess.UI.Controllers
                     {
                         return Redirect(model.ReturnUrl);
                     }
-                    return RedirectToAction("Index", "Produtos");
+                    return RedirectToAction("Index", "Home");
                 }
             }
             return View(model);
@@ -69,7 +69,7 @@ namespace EndLess.UI.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Login");
+            return RedirectToAction("Logon");
         }
 
         protected override void Dispose(bool disposing)
