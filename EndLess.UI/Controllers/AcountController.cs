@@ -10,12 +10,7 @@ namespace EndLess.UI.Controllers
 {
     public class AcountController: Controller
     {
-        private IUsuarioRepository _usuarioRepository;
-
-        public AcountController(IUsuarioRepository usuarioRepository)
-        {
-            _usuarioRepository = usuarioRepository;
-        }
+        private readonly IUsuarioRepository _usuarioRepository = new UsuarioRepository();
 
         [HttpGet]
         public ActionResult Logon(string returnUrl)
