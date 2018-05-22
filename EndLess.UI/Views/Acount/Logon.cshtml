@@ -1,38 +1,37 @@
 ﻿@model LogonViewModel
-@{
-    ViewBag.Title = "Logon";
-}
 
-<h2>@ViewBag.Title</h2>
 
 @Html.ValidationSummary(true)
 
-<form method="post">
-    @Html.AntiForgeryToken()
-    <div class="form-group">
-        <label>Usuário</label>
-        @*<input name="email" type="email" class="form-control" autofocus value="@Model.Email" />*@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>[Template para o logon]</title>
+    <link href="~/content/logon.css" rel="stylesheet">
+</head>
+<body class="text-center">
+    <form class="form-signin">
+        <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Por favor faça login</h1>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Endereço email" required autofocus>
+        <label for="inputPassword" class="sr-only">Senha</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Lembrar-me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
+</body>
+</html>
 
-        @Html.TextBoxFor(m => m.Email, new { autofocus = "", @class = "form-control" })
-        <small>
-            @Html.ValidationMessageFor(m => m.Email, null, new { @class = "is-invalid" })
-        </small>
-    </div>
-
-    <div class="form-group">
-        <label>Senha</label>
-        @*<input name="senha" type="password" class="form-control"  value="@Model.Senha"/>*@
-
-        @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
-        <small>
-            @Html.ValidationMessageFor(m => m.Senha, null, new { @class = "is-invalid" })
-        </small>
-    </div>
-
-    <button class="btn btn-secondary">Entrar</button>
-    <a class="btn btn-outline-secondary" href="/">Cancelar</a>
-
-</form>
 
 @section scripts{
     <script src="~/Scripts/jquery.validate.min.js"></script>

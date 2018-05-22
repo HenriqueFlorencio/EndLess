@@ -133,6 +133,7 @@
     <Content Include="content\estilo.css" />
     <Content Include="content\font-awesome.css" />
     <Content Include="content\font-awesome.min.css" />
+    <Content Include="content\logon.css" />
     <Content Include="content\toastr.css" />
     <Content Include="content\toastr.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
