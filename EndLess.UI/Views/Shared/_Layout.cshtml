@@ -8,9 +8,17 @@
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/toastr.min.css" rel="stylesheet" />
     <link href="~/Content/estilo.css" rel="stylesheet" />
+
     <title>@ViewBag.Title</title>
 </head>
 <body>
+
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
+
+    @RenderSection("scripts", false)
+
 
     @Html.Partial("_Menu")
 
@@ -20,14 +28,9 @@
 
     <footer class="footer">
         <div class="container">
-            <span class="text-muted">&copy;@DateTime.Now.Year ENDLESS.</span>
+            <span class="text-muted">&copy;@DateTime.Now.Year [Nome Sistema].</span>
         </div>
     </footer>
-
-    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
-    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
-    <script src="~/Scripts/toastr.min.js"></script>
-    @RenderSection("scripts", false)
 
 </body>
 </html>

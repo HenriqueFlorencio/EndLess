@@ -1,0 +1,59 @@
+﻿@model Usuario
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label for="inputNome" class="sr-only">Nome</label>
+        <label>Nome</label>
+        <input id="inputNome" name="Nome" type="text" class="form-control" placeholder="Nome" required autofocus value="@Model.Nome" />
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label>Usuário</label>
+            <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text">@@</span></div>
+                <input id="inputEmail" name="email" type="email" class="form-control" placeholder="Endereço de email" required autofocus value="@Model.Email" />
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="form-group Input">
+                <label for="inputSenha" class="sr-only">Senha</label>
+                <label>Senha</label>
+                <input id="inputSenha" name="senha" type="password" class="form-control" placeholder="Senha" required value="@Model.Senha" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Perfil de acesso</label>
+        <div class="input-group">
+            <input id="inputPerfil" name="Perfil" type="text" class="form-control" placeholder="Perfil do usuário" required autofocus value="@Model.Perfil.Nome" disabled="disabled" />
+        </div>
+    </div>
+
+    <input id="inputIdPerfil" name="PerfilId" type="number" value="@Model.PerfilId" hidden="hidden" />
+
+    <input id="inputDataCadastro" name="DataCatastro" type="text" value="@Model.DataCatastro" hidden="hidden" />
+
+    <input id="inputDataAtivacao" name="DataAtivacao" type="text" value="@Model.DataAtivacao" hidden="hidden" />
+
+    <div class="form-group">
+        <button class="btn btn-secondary">Salvar</button>
+        <a class="btn btn-outline-secondary" href="@Url.Action("Index","Home")">Cancelar</a>
+    </div>
+</form>
+
+@if (ViewBag.retorno == 1)
+{
+    <script>
+        toastr.success('Dados de usuário alterado com sucesso!');
+    </script>
+}
+
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrapvalidade.js"></script>
+    <script src="~/Scripts/jquery.validate.methods.pt_BR.js"></script>
+}

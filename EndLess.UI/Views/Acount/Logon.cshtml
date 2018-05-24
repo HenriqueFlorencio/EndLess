@@ -1,40 +1,22 @@
-﻿@model LogonViewModel
+﻿@model EndLess.UI.Models.LogonViewModel
 
+<h2>@ViewBag.Title</h2>
+<form method="post" class="form-signin">
+    @Html.AntiForgeryToken()
 
-@Html.ValidationSummary(true)
+    <img class="form-control" src="" style="text-align:center" />
+    <br />
+    <div class="form-group Input input-group">
+        <label for="inputEmail" class="sr-only">Usuário</label>
+        <div class="input-group-prepend"><span class="input-group-text">@@</span></div>
+        <input id="inputEmail" name="email" type="email" class="form-control" placeholder="Endereço de email" required autofocus value="@Model.Email" />
+    </div>
 
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>[Template para o logon]</title>
-    <link href="~/content/logon.css" rel="stylesheet">
-</head>
-<body class="text-center">
-    <form class="form-signin">
-        <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Por favor faça login</h1>
-        <label for="inputEmail" class="sr-only">Email</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Endereço email" required autofocus>
-        <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Lembrar-me
-            </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-    </form>
-</body>
-</html>
+    <div class="form-group Input">
+        <label for="inputSenha" class="sr-only">Senha</label>
+        <input id="inputSenha" name="senha" type="password" class="form-control" placeholder="Senha" required value="@Model.Senha" />
+    </div>
 
+    <button class="btn btn-lg btn-primary btn-block">Entrar</button>
+</form>
 
-@section scripts{
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Scripts/bootstrapvalidade.js"></script>
-}

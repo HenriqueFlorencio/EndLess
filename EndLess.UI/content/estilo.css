@@ -20,7 +20,18 @@ body {
     background-color: #f5f5f5;
 }
 
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
 
+.Input {
+    margin-bottom: 5px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
