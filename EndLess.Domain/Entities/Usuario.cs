@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -26,5 +27,7 @@ namespace EndLess.Domain.Entities
 
         [ForeignKey(nameof(PerfilId))]
         public virtual Perfil Perfil { get; set; }
+
+        public virtual ICollection<Curso> Cursos { get; set; } = new List<Curso>();
     }
 }

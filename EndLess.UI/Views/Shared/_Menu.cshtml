@@ -16,8 +16,14 @@
                         Olá @user.Nome
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" style="color:black"href="@Url.Action("AddEdit","Acount", new { id=user.Id})"><i class="fa fa-user-circle "></i> Meu perfil</a>
+                        <a class="dropdown-item" style="color:black" href="@Url.Action("AddEdit","Acount", new { id=user.Id})"><i class="fa fa-user-circle "></i> Meu perfil</a>
                         <div class="dropdown-divider"></div>
+                        @if (user.PerfilNome=="Admin")
+                        {
+                            <a class="dropdown-item" style="color:black" href="@Url.Action("Index","Curso")"><i class="fa fa-book"></i> Cursos</a>
+                            <div class="dropdown-divider"></div>
+                        }
+
                         <a class="dropdown-item" style="color:black" href="@Url.Action("LogOut","Acount")"><i class="fa fa-arrow-circle-o-right "></i> Sair</a>
                     </div>
                 </li>

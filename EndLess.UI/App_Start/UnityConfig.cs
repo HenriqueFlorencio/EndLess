@@ -47,6 +47,7 @@ namespace EndLess.UI
 
             container.RegisterType<IUsuarioRepository, UsuarioRepository>();
             container.RegisterType<IPerfilRepository, PerfilRepository>();
+            container.RegisterType<ICursoRepository, CursoRepository>();
 
         }
     }

@@ -15,5 +15,20 @@ namespace EndLess.Data.EF
         }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Perfil> Perfis { get; set; }
+        public DbSet<Curso> Cursos { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Curso>()
+                .HasMany(p => p.Usuarios)
+                .WithMany(p => p.Cursos)
+                .Map(m => {
+                    m.ToTable("CursoUsuario");
+                    m.MapLeftKey("CursoId");
+                    m.MapRightKey("UsuarioId");
+                });
+        }
     }
 }

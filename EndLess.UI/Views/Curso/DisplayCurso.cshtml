@@ -1,0 +1,14 @@
+﻿<fieldset style="text-align:center">
+    <video id="video" class="form-control" poster="~/imagens/wait.png">
+        <source src="@Url.Content("~/cursos/VID-20180521-WA0011.mp4")" type="video/mp4">
+    </video>
+    <br />
+    <div id="video-controls">
+        <button class="play btn btn-secondary">pause</button>
+        @*<span class="time"></span>*@
+    </div>
+</fieldset>
+
+@section scripts{
+    <script src="~/Scripts/video.js"></script>
+}

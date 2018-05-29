@@ -1,14 +1,106 @@
-﻿<fieldset style="text-align:center">
-    <video id="video" class="form-control" poster="~/imagens/wait.png" >
-        <source src="@Url.Content("~/cursos/VID-20180521-WA0011.mp4")" type="video/mp4">
-    </video>
-    <br />
-    <div id="video-controls">
-        <button class="play btn btn-secondary">pause</button>
-        @*<span class="time"></span>*@
+﻿@model List<Curso>
+
+<h2>@ViewBag.Title</h2>
+
+<a class="btn btn-primary" href="@Url.Action("AddEdit")">Novo Curso</a>
+<br>
+<table class="table table-striped table-hover table-responsive-sm">
+    <thead class="table-primary">
+        <tr>
+            <th>Titulo</th>
+            <th>Descricao</th>
+            <th>Sitacao</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr id="curso-@item.Id">
+                <td>@item.Titulo</td>
+                <td>@item.Descricao</td>
+                <td>@item.Sitacao</td>
+                <td>
+                    <a class="btn btn-sm btn-success" href="@Url.Action("AddEdit",new { id=item.Id})">
+                        <i class="fa fa-edit"></i>
+                        Editar
+                    </a>
+                    <button onclick="delProd('@item.Id','@item.Titulo')" class="btn btn-sm btn-danger">
+                        <i class="fa fa-trash"></i>
+                        Excluir
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div data-id="0" id="delModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Curso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Deseja excluir o Curso: <span id="nomeCurso">xxxxx</span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="confirmDel()" type="button" class="btn btn-primary">Excluir</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
     </div>
-</fieldset>
+</div>
 
 @section scripts{
-    <script src="~/Scripts/video.js"></script>
+    <script>
+        function delProd(id, nome) {
+            //alert(id + ' - ' + nome);
+            $('#nomeCurso').text(nome);
+            $('#delModal').data('id', id).modal('show');
+        }
+
+        var _url = "@Url.Action("Excluir")";
+        function confirmDel() {
+            var _id = $('#delModal').data('id');
+            //alert('excluir ' + _id);
+            var params = {
+                url: _url,
+                data: { id: _id },
+                method: 'post',
+                success: function (response) {
+                    //console.log(response);
+                    if (response.success) {
+                        toastr.success(response.msg, 'EndLess');
+                        $('#curso-' + _id).remove();
+                    } else {
+                        toastr.error(response.msg, 'EndLess');
+                    }
+                    $('#delModal').modal('hide');
+                }
+            };
+            $.ajax(params);
+        }
+    </script>
+
+    @if (TempData["TipoAlteracao"] != null)
+    {
+        if (TempData["TipoAlteracao"].ToString() == "Adicionar")
+        {
+            <script>
+                toastr.success('Produto adicionado com sucesso!');
+            </script>
+        }
+        else
+        {
+            <script>
+                toastrwarning('Produto alterado com sucesso!');
+            </script>
+        }
+
+
+    }
 }

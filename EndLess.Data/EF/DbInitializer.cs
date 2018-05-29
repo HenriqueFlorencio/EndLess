@@ -10,6 +10,7 @@ namespace EndLess.Data.EF
         protected override void Seed(EndLessDataContext context)
         {
             //base.Seed(context);
+
             context.Usuarios.Add(new Usuario() {
                 Perfil = new Perfil() { Nome = "Admin" },
                 Nome = "Henrique Florencio",
@@ -17,6 +18,13 @@ namespace EndLess.Data.EF
                 Email = "henrique.florencio@gmail.com",
                 DataCatastro = DateTime.Now,
                 DataAtivacao = DateTime.Now
+            });
+
+            context.Cursos.Add(new Curso()
+            {
+                Titulo="Karatê-Do, Trabalhando a respiração",
+                Descricao="Curso destinado a práitca de respiração, a importancia da respiração na aplicação de um golpe.",
+                Sitacao= true
             });
 
             context.SaveChanges();
