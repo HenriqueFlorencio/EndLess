@@ -231,6 +231,7 @@
     <Content Include="Views\Acount\AddEdit.cshtml" />
     <Content Include="Views\Curso\Index.cshtml" />
     <Content Include="Views\Curso\DisplayCurso.cshtml" />
+    <Content Include="Views\Curso\AddEdit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

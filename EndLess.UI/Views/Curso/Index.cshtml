@@ -2,38 +2,39 @@
 
 <h2>@ViewBag.Title</h2>
 
-<a class="btn btn-primary" href="@Url.Action("AddEdit")">Novo Curso</a>
-<br>
 <table class="table table-striped table-hover table-responsive-sm">
-    <thead class="table-primary">
+    <thead class="table-bordered">
         <tr>
             <th>Titulo</th>
             <th>Descricao</th>
             <th>Sitacao</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="table-bordered">
         @foreach (var item in Model)
         {
             <tr id="curso-@item.Id">
                 <td>@item.Titulo</td>
                 <td>@item.Descricao</td>
-                <td>@item.Sitacao</td>
+                <td align="center"><input type="checkbox" checked="@item.Sitacao" disabled="disabled" value="@item.Sitacao"></td>
                 <td>
                     <a class="btn btn-sm btn-success" href="@Url.Action("AddEdit",new { id=item.Id})">
                         <i class="fa fa-edit"></i>
-                        Editar
                     </a>
+                </td>
+                <td>
                     <button onclick="delProd('@item.Id','@item.Titulo')" class="btn btn-sm btn-danger">
                         <i class="fa fa-trash"></i>
-                        Excluir
                     </button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<a class="btn btn-secondary" href="@Url.Action("AddEdit")">+Add</a>
+<a class="btn btn-outline-secondary" href="@Url.Action("Index","Home")">voltar</a>
 
 <div data-id="0" id="delModal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -85,22 +86,4 @@
             $.ajax(params);
         }
     </script>
-
-    @if (TempData["TipoAlteracao"] != null)
-    {
-        if (TempData["TipoAlteracao"].ToString() == "Adicionar")
-        {
-            <script>
-                toastr.success('Produto adicionado com sucesso!');
-            </script>
-        }
-        else
-        {
-            <script>
-                toastrwarning('Produto alterado com sucesso!');
-            </script>
-        }
-
-
-    }
 }

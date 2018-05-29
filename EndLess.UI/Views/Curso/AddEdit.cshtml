@@ -1,0 +1,38 @@
+﻿@model Curso
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label for="inpuTitulo" class="sr-only">Titulo</label>
+        <label>Titulo</label>
+        <input id="inputTitulo" name="Titulo" type="text" class="form-control" placeholder="Titulo do curso" required autofocus value="@Model.Titulo" />
+    </div>
+
+    <div class="form-group">
+        <label>Descricao</label>
+        <label for="inputDescricao" class="sr-only">Situacao</label>
+        <div class="input-group">
+            @Html.TextAreaFor(m => m.Descricao, new { id = "inputDescricao", @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="checkbox">
+            <label>Situação <input type="checkbox"  checked="@Model.Sitacao"  value="@Model.Sitacao"> (Ativo ?)</label>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <button class="btn btn-secondary">Salvar</button>
+        <a class="btn btn-outline-secondary" href="@Url.Action("Index","Curso")">Cancelar</a>
+    </div>
+</form>
+
+
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrapvalidade.js"></script>
+    <script src="~/Scripts/jquery.validate.methods.pt_BR.js"></script>
+}

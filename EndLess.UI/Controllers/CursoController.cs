@@ -53,10 +53,36 @@ namespace EndLess.UI.Controllers
                 else
                     _cursoRepository.Update(model);
 
-                return RedirectToAction("Logon", "Acount");
+                return RedirectToAction("Index", "Curso");
             }
 
             return View(model);
+        }
+
+        [HttpPost]
+        public JsonResult Excluir(int id)
+        {
+            var success = false;
+            var msg = "produtdo nao excluído";
+            var curso = _cursoRepository.Get(id);
+
+            if (curso != null)
+            {
+                _cursoRepository.Delete(curso);
+
+                success = true;
+                msg = "Excluído com sucesso";
+            }
+
+            return Json(new { success, msg });
+        }
+        // boa pratica é sobrescrever o dispose da Classe Controller
+        protected override void Dispose(bool disposing)
+        {
+            //base.Dispose(disposing);
+
+            _cursoRepository.Dispose();
+            _cursoRepository.Dispose();
         }
 
     }
