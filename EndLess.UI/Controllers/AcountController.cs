@@ -66,7 +66,7 @@ namespace EndLess.UI.Controllers
                     {
                         return Redirect(model.ReturnUrl);
                     }
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home", new { usuario.Id });
                 }
             }
             return View(model);
@@ -78,8 +78,6 @@ namespace EndLess.UI.Controllers
             return RedirectToAction("Logon");
         }
 
-        //[Route("Produtos/Edit/{id}")]
-        //[Route("Produtos/Adicionar")]
         public ActionResult AddEdit(int? id)
         {
             Usuario usuario = new Usuario();

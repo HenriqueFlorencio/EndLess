@@ -21,7 +21,7 @@ namespace EndLess.Domain.Entities
         public DateTime DataCatastro { get; set; }
 
         [Column(TypeName = "datetime"), Required]
-        public DateTime DataAtivacao { get; set; }
+        public DateTime? DataAtivacao { get; set; }
 
         public int PerfilId { get; set; }
 
